@@ -1,1 +1,3 @@
-print("Hola Mundo")
+<?php
+
+echo "Hola mundo"
