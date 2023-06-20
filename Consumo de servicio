@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consumo de servicios</title>
+</head>
+<body>
+  <h1>Consumo de servicios</h1>
+  <ul>
+    <li><a href="#seccion1">Obtener imagen de perrito</a></li>
+  </ul>
+
+  <h2 id="seccion1">Perritos lindos</h2>
+  <div id="dog-images"></div>
+
+  <script>
+    // Realiza la solicitud a la API de imágenes de perritos
+    fetch('https://dog.ceo/api/breeds/image/random')
+      .then(response => response.json())
+      .then(data => {
+        const imageUrl = data.message;
+        const dogImage = document.createElement('img');
+        dogImage.src = imageUrl;
+        document.getElementById('dog-images').appendChild(dogImage);
+      })
+      .catch(error => {
+        console.error('Error al obtener la imagen del perrito:', error);
+      });
+  </script>
+</body>
+</html>
